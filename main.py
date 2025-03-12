@@ -1,7 +1,9 @@
 import asyncio
 import logging
+
 from aiogram import Bot, Dispatcher
 from handlers.user_handler import UserHandler
+from services.user_service import UserService
 from middlewares.logging_middleware import LoggingMiddleware
 from configs import BOT_TOKEN, LOG_LEVEL
 
@@ -18,7 +20,7 @@ async def main():
     bot_commands = list()
 
     # Создание экземпляров хэндлеров
-    user_handler = UserHandler()
+    user_handler = UserHandler(UserService())
 
     # Регистрация хэндлеров
     bot_commands.extend(user_handler.register_handlers())
