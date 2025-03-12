@@ -1,9 +1,17 @@
-from dotenv import load_dotenv
-import os
+"""
+Модуль для загрузки конфигурационных переменных окружения.
 
-# Загрузка переменных окружения из .env
+Использует библиотеку python-dotenv для загрузки переменных из файла .env.
+Переменные окружения используются для настройки приложения, таких как токен бота
+и уровень логгирования.
+"""
+
+import os
+from dotenv import load_dotenv
+
+# Загрузка переменных окружения из файла .env
 load_dotenv()
 
-# Чтение переменных
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")  # Значение по умолчанию
+# Чтение переменных окружения
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # Токен Telegram-бота
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")  # Уровень логгирования (по умолчанию INFO)
