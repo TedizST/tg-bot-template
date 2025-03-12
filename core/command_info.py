@@ -1,6 +1,6 @@
 from abc import ABC
 
-class CmdInfo(ABC):
+class CommandInfo(ABC):
     def __init__(self, name: str, description: str):
         self.__name = name
         self.__description = description

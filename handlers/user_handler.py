@@ -1,7 +1,7 @@
 from aiogram.types import Message
 
 from core.base_handler import BaseHandler
-from cmds_infos import user_cmds_infos
+from commands_infos import user_commands_infos
 from factories.command_factory import CommandFactory
 from services.user_service import UserService
 
@@ -16,12 +16,12 @@ class UserHandler(BaseHandler):
             CommandFactory.register(
                  router=self.router, 
                  callback=self.start_command, 
-                 cmd_info=user_cmds_infos.start,
+                 cmd_info=user_commands_infos.start,
                 ),  
             CommandFactory.register(
                  router=self.router,
                  callback=self.help_command, 
-                 cmd_info=user_cmds_infos.help,
+                 cmd_info=user_commands_infos.help,
             )
         ]
 
