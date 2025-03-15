@@ -94,16 +94,12 @@ class AppBuilder:
             self.__bot_commands.extend(handler.bot_commands)
             self.__dp.include_router(handler.router)
 
-    async def put_menu(self):
+    async def set_menu(self):
         """
-        Регистрирует команды меню для бота.
+        Регистрирует команды меню для бота через метод set_my_commands.
+        """
 
-        Если список команд меню не пустой, они устанавливаются для бота
-        через метод set_my_commands.
-        """
-        if len(self.__bot_commands) != 0:
-            await self.__bot.delete_my_commands()
-            await self.__bot.set_my_commands(self.__bot_commands)
+        await self.__bot.set_my_commands(self.__bot_commands)
 
     def __register_middlewares(self):
         """
@@ -137,6 +133,6 @@ class AppBuilder:
             AppBuilder: Настроенный экземпляр AppBuilder.
         """
         app = AppBuilder()
-        await app.put_menu()  # Используем защищенный метод вместо приватного
+        await app.set_menu()  # Используем защищенный метод вместо приватного
 
         return app
